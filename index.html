@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSI Student Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Banner -->
+        <header class="header-banner">
+            <div class="header-left">
+                <span class="sub-heading">HSI BOARDING SCHOOL • WEB PROGRAMMING</span>
+                <h1>🎓 HSI Student Management</h1>
+            </div>
+            <div class="header-badge">
+                Phase 4<br>Dynamic UI + Storage
+            </div>
+        </header>
+
+        <!-- Area Alert / Pesan Notifikasi -->
+        <div id="alertMessage" class="alert hidden"></div>
+
+        <!-- Main Content 2 Kolom -->
+        <main class="main-layout">
+            <!-- Kolom Kiri: Form Input -->
+            <section class="card form-card">
+                <h2 id="formTitle">➕ Tambah Siswa</h2>
+                
+                <form id="studentForm">
+                    <input type="hidden" id="studentId">
+                    
+                    <div class="form-group">
+                        <label for="studentName">Nama Siswa</label>
+                        <input type="text" id="studentName" placeholder="Contoh: Ahmad" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentScore">Nilai</label>
+                        <input type="number" id="studentScore" min="0" max="100" placeholder="0 - 100" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="btnSubmit" class="btn btn-primary">➕ Tambah Siswa</button>
+                        <button type="button" id="btnCancel" class="btn btn-secondary hidden">❌ Batal Edit</button>
+                    </div>
+                </form>
+
+                <p class="form-note">
+                    💡 Data yang ditambahkan akan masuk ke array JavaScript, kemudian UI dirender ulang dan disimpan ke browser.
+                </p>
+            </section>
+
+            <!-- Kolom Kanan: Statistik & Daftar Siswa -->
+            <section class="card list-card">
+                <div class="card-header">
+                    <h2>📋 Daftar Siswa</h2>
+                    <span class="badge-storage">💾 LocalStorage</span>
+                </div>
+
+                <!-- Statistik Siswa -->
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-label">Total Siswa</span>
+                        <span class="stat-value" id="totalStudents">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Rata-rata Nilai</span>
+                        <span class="stat-value" id="averageScore">0</span>
+                    </div>
+                </div>
+
+                <!-- Fitur Cari Siswa (Bonus) -->
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Cari siswa berdasarkan nama..." class="search-input">
+                </div>
+
+                <!-- Container Daftar Siswa -->
+                <div id="studentList" class="student-list">
+                    <!-- Data siswa akan di-render di sini secara dinamis -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
